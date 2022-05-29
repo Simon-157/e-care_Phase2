@@ -1,0 +1,41 @@
+import styled from "styled-components"
+
+export const PageNotFoundStyled = styled.div`
+
+
+.not-found{
+
+    display:fex;
+    justify-content: center;
+    justify-items: center;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    padding-left: 2rem;
+
+    
+  }
+
+.not-found h1{
+    text-align: center;
+    text-transform: capitalize;
+    text-underline-offset:inherit;
+    font-size:2rem;
+    animation: not-found 3s infinite alternate-reverse ;
+    -webkit-animation: not-found 3s infinite alternate-reverse ;
+}
+
+@keyframes not-found{
+    20%{
+        text-transform:lowercase;
+    }
+    50%{
+        text-transform:uppercase;
+
+    }
+    100%{
+        text-underline-offset:unset;
+    }
+}
+
+
+`
