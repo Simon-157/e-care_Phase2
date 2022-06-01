@@ -10,10 +10,8 @@ function Home() {
 
     
     <FormProvider>
-        
         <SideBar />
         <MainGridStyled>
-           
             <h1>Welcome Simon<img src ={Welcome} className="avatar" alt=""/></h1>
         </MainGridStyled>
     </FormProvider>

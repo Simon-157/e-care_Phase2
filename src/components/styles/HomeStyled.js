@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainGridStyled = styled.section`
-
+  
   margin-left: 200px;
   box-sizing: border-box;
   height: 100%;
@@ -21,6 +21,14 @@ export const MainGridStyled = styled.section`
     width:30px;
     height:30px;
     
+}
+h1{
+  position:relative;
+  height:2rem;
+  width:100%;
+  margin:0;
+  align-items:center;
+  text-align:right  ;
 }
 
 

@@ -12,6 +12,7 @@ export const StyledContainer = styled.div`
     border: 1px solid #dadada;
     border-radius: 5px;
     overflow-y: hidden;
+    overflow-x:hidden;
 
     .item-container{
         display:grid;

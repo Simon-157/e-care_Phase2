@@ -1,11 +1,14 @@
-import '../App.css';
-import {useContext} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import { formContext } from '../components/Contexts/FormContext'
+import { ActionButtonStyled } from '../components/styles/ActionButton';
 import { ButtonStyled } from '../components/styles/Button.Styled';
 import { StyledContainer } from '../components/styles/Container.Styled';
 import { NavSection } from '../components/styles/NavSection';
+import { SearchBarStyled } from '../components/styles/SearchBar.Styled';
 import { TableStyled } from '../components/styles/TableStyled';
 import {data} from "./PatientsDummy"
+import { DashStyled } from "./../components/styles/Dash.Styled";
+import Card from "./../components/Card";
 
 
 // Example of a data array that
@@ -14,25 +17,96 @@ import {data} from "./PatientsDummy"
 
 function PatientsList() {
 
-    const {patientFormIsOpen, setPatientFormIsOpen} = useContext(formContext);
+    const {setPatientFormIsOpen} = useContext(formContext);
+
+
+ 
+    const [dataArray, setData] = useState(data)
+    const [patients, setPatients] = useState(dataArray)
+    const [title, setTitle] = useState(" ")
+    const [numberMales, setNumberMales] = useState([{tag:"MALES"}])
+    const [numberFemales, setNumberFemales] = useState([{tag:"FEMALES"}])
+
+    var mArray = [{tag:"MALES"}];
+    var fArray = [{tag:"FEMALES"}];
+    const count = () => {
+
+        for(let i=0; i<dataArray.length; i++){
+            if(dataArray[i].gender.toLowerCase() === 'male' && !mArray.includes(dataArray[i])){
+                
+                mArray.push(dataArray[i]);
+            }
+            else if(dataArray[i].gender.toLowerCase() === 'female' && !fArray.includes(dataArray[i])){
+                fArray.push(dataArray[i]);
+            }
+            
+        }
+
+        setNumberMales(mArray)
+        setNumberFemales(fArray)
+        console.log(numberMales)
+        console.log(numberFemales)
+        
+        }
+    
+    const filter = (e) => {
+        const searchTitle = e.target.value
+        setTitle(searchTitle);
+    
+        
+        if(searchTitle !== " "){
+    
+            const results = dataArray.filter((patient) => {
+            return patient.name.toLowerCase().includes(searchTitle.toLowerCase()) || patient.LastName.toLowerCase().includes(searchTitle.toLowerCase());
+            });
+            setPatients(results)
+    
+        }
+        else{
+            setPatients(dataArray)
+        }
+      
+    }
+
 
     const openPatientForm = () =>{
         setPatientFormIsOpen(true);
     }
 
+    useEffect(() =>{
+        count()
+    }, [patients])
+
+
 return (
     <>
+        <DashStyled >
+            <Card number = {patients} />  
+            <Card number = {numberMales} />  
+            <Card number = {numberFemales}/>  
+         
+        </DashStyled>
         
         <NavSection >
+            
             <h2>REGISTERED PATIENTS</h2>
             
             <ButtonStyled >
                 <div onClick={openPatientForm}>Add Patient</div>
             </ButtonStyled>
         </NavSection>
+        
         <StyledContainer>
+            <SearchBarStyled>
+                <input className="search-input" 
+                    type="search" 
+                    name={title} 
+                    onChange={filter} 
+                    placeholder="Search for a registered patient" 
+                />
+                
+            </SearchBarStyled>
                     
-
             <div className="item-container">
             
                 <TableStyled>
@@ -45,7 +119,7 @@ return (
                         <th>Gender</th>
                         <th>Action</th>
                         </tr>
-                        {(data).map((val, key) => {
+                        {(patients).map((val, key) => {
                         return (
                             <tr key={key}>
                             <td>{val.name}</td>
@@ -53,9 +127,9 @@ return (
                             <td>{val.age}</td>
                             <td>{val.gender}</td>
                             <td>
-                                <ButtonStyled>
+                                <ActionButtonStyled>
                                     Send to Next
-                                </ButtonStyled>
+                                </ActionButtonStyled>
                             </td>
                             </tr>
                         )

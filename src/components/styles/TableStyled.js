@@ -11,6 +11,7 @@ export const TableStyled = styled.div`
         color:#1f2349;
         font-size: 20px;
         
+        
     }
         
     th {
@@ -25,6 +26,7 @@ export const TableStyled = styled.div`
     tr{
         border-bottom: 1px solid #6d6b6b;
         cursor:pointer;
+       
     }
     tr:nth-child(even) {
         background-color: #dddddd;

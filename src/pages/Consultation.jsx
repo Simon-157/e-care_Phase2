@@ -1,8 +1,20 @@
-import React from 'react'
+
+import { NavSection } from '../components/styles/NavSection'
+import ConsultationList from './ConsultationList';
 
 function Consultation() {
   return (
-    <div>Consultation</div>
+    <>
+        
+      <NavSection >
+          <h2>Consultation</h2>
+      </NavSection>
+    
+        <div className="item-container">
+            <ConsultationList />
+        </div>
+    
+    </>
   )
 }
 

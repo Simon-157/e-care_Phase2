@@ -3,14 +3,15 @@ import Modal from 'react-modal'
 import { formContext } from './Contexts/FormContext'
 import 'animate.css'
 import { FormStyled } from './styles/Form.Styled'
+import SearchBar from './SearchBar'
 
 
 
 const PatientForm = () => {
 
   const {patientFormIsOpen, setPatientFormIsOpen} = useContext(formContext)
-  const [title, setTitle] = useState('')
-  const [subContent, setSubContent] = useState('')
+  // const [title, setTitle] = useState('')
+  // const [subContent, setSubContent] = useState('')
 
   
   const handleModal = () => {
@@ -19,7 +20,7 @@ const PatientForm = () => {
   
   return (
     <>
-    
+        
         <Modal
         className='animate__animated animate__fadeInUp animate__faster'
         isOpen={patientFormIsOpen}
@@ -72,7 +73,7 @@ const PatientForm = () => {
                 <input type="email" name="email_address" id="email_address" />
 
                 <fieldset>
-                    <legend>What is your preferred?</legend>
+                    <legend>What is your preferred title?</legend>
                     <label> <input type="radio" name="taxi" id="taxi_car" required value="car" /> Mr</label>
                     <label> <input type="radio" name="taxi" id="taxi_van" required value="van" /> Mrs </label>
                     <label> <input type="radio" name="taxi" id="taxi_tuk" required value="tuktuk" /> Dr </label>
@@ -86,10 +87,10 @@ const PatientForm = () => {
                     <label> <input type="checkbox" name="extras" id="extras_tip" value="tip" /> Stock Tip </label>
                 </fieldset>
 
-                <label for="pickup_time">Pickup Date/Time</label>
+                <label for="pickup_time">Registration Date/Time</label>
                 <input type="datetime-local" name="pickup_time" id="pickup_time" required />
 
-                <label for="pickup_place">Pickup Place</label>
+                <label for="pickup_place">Facility Name</label>
                 <select name="pickup_place" id="pickup_place">
                     <option value="" selected="selected">Select One</option>
                     <option value="office" >Taxi Office</option>
@@ -115,7 +116,7 @@ const PatientForm = () => {
             </FormStyled>
             
         </Modal>
-        <p></p>
+        
     </>
   )
 }

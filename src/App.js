@@ -8,6 +8,7 @@ import FormProvider from './components/Contexts/FormContext';
 import Patients from './pages/Patients';
 import NotFound from "./pages/404Page";
 import Login from "./pages/Login";
+import Consultation from "./pages/Consultation";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
-          <Route exact path="/health/consultation" />
+          <Route exact path="/health/consultation" element = {<Consultation />} />
           <Route exact path="/health/pharmacy" />
           <Route exact path="/health/accounts" />
           <Route exact path="/health/patients" element={<Patients />} />
