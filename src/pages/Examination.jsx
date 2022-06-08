@@ -1,10 +1,10 @@
 
-import {useContext} from 'react'
-import { formContext } from '../components/Contexts/FormContext'
+// import {useContext} from 'react'
+// import { formContext } from '../components/Contexts/FormContext'
 
 const Examination = () =>{
 
-    const {setExaminationIsOpen} = useContext(formContext)
+    // const {setExaminationIsOpen} = useContext(formContext)
 
 
 
