@@ -21,13 +21,13 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
-          <Route exact path="https://ecareclient.netlify.app/login" element={<Login />} />
-          <Route exact path="https://ecareclient.netlify.app/health/consultation" element = {<Consultation />} />
-          <Route exact path="https://ecareclient.netlify.app/health/pharmacy" />
-          <Route exact path="https://ecareclient.netlify.app/health/accounts" />
-          <Route exact path="https://ecareclient.netlify.app/health/patients" element={<Patients />} />
-          <Route exact path="https://ecareclient.netlify.app/report" element = {<dummy /> }/>
-          <Route path="https://ecareclient.netlify.app/health/examination" element = {<Examination />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/health/consultation" element = {<Consultation />} />
+          <Route exact path="/health/pharmacy" />
+          <Route exact path="/health/accounts" />
+          <Route exact path="/health/patients" element={<Patients />} />
+          <Route exact path="/report" element = {<dummy /> }/>
+          <Route path="/health/examination" element = {<Examination />} />
           <Route path="*" element = {<NotFound />} />
 
         </Routes>
