@@ -21,12 +21,12 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/health/consultation" element = {<Consultation />} />
-          <Route exact path="/health/pharmacy" />
-          <Route exact path="/health/accounts" />
-          <Route exact path="/health/patients" element={<Patients />} />
-          <Route exact path="/report" element = {<dummy /> }/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/health/consultation" element = {<Consultation />} />
+          <Route path="/health/pharmacy" />
+          <Route path="/health/accounts" />
+          <Route path="/health/patients" element={<Patients />} />
+          <Route path="/report" element = {<dummy /> }/>
           <Route path="/health/examination" element = {<Examination />} />
           <Route path="/notfound" element = {<NotFound />} />
 
