@@ -28,7 +28,7 @@ function App() {
           <Route path="/health/patients" element={<Patients />} />
           <Route path="/report" element = {<dummy /> }/>
           <Route path="/health/examination" element = {<Examination />} />
-          <Route path="/notfound" element = {<NotFound />} />
+          <Route path="*" element = {<NotFound />} />
 
         </Routes>
 
