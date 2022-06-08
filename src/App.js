@@ -24,10 +24,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/health/consultation" element = {<Consultation />} />
           <Route path="/health/pharmacy" />
-          <Route path="/health/accounts" />
+          <Route path="/accounts" />
           <Route path="/health/patients" element={<Patients />} />
           <Route path="/report" element = {<dummy /> }/>
-          <Route path="/health/examination" element = {<Examination />} />
+          <Route path="/examination" element = {<Examination />} />
           <Route path="*" element = {<NotFound />} />
 
         </Routes>
