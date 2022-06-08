@@ -28,7 +28,7 @@ function App() {
           <Route exact path="/health/patients" element={<Patients />} />
           <Route exact path="/report" element = {<dummy /> }/>
           <Route path="/health/examination" element = {<Examination />} />
-          <Route path="*" element = {<NotFound />} />
+          <Route path="/notfound" element = {<NotFound />} />
 
         </Routes>
 
