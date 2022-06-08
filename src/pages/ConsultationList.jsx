@@ -4,24 +4,28 @@ import { ActionButtonStyled } from '../components/styles/ActionButton';
 import { StyledContainer } from '../components/styles/Container.Styled';
 import { TableStyled } from '../components/styles/TableStyled';
 import {data} from "./PatientsDummy"
-
-
+import ExaminationForm from '../components/ExaminationForm'
 // Example of a data array that
 // you might receive from an API
 
 
 function ConsultationList() {
+    
+    const {setExaminationFormIsOpen, setActivePatient} = useContext(formContext)
+  
 
-    const {setPatientFormIsOpen} = useContext(formContext);
-
-    const openPatientForm = () =>{
-        setPatientFormIsOpen(true);
+    const openExaminationForm = (e) =>{
+    
+        setExaminationFormIsOpen(true);
+        setActivePatient(e);
+        return e;
     }
 
 return (
     <>
-        <StyledContainer>
-                    
+
+        <ExaminationForm />
+        <StyledContainer>                
 
             <div className="item-container">
             
@@ -29,7 +33,7 @@ return (
                     
                     <table>
                         <tr>
-                        <th style={{alignItems:"self-start !important"}}>Patuents Name</th>
+                        <th style={{alignItems:"self-start !important"}}>Name</th>
                         <th>Age</th>
                         <th>Gender</th>
                         <th>Examination</th>
@@ -43,7 +47,13 @@ return (
                             <td>{val.age}</td>
                             <td>{val.gender}</td>
                             <td>
-                                <ActionButtonStyled>
+                                <ActionButtonStyled onClick = {(e)=>{
+                                e=val
+                                
+                                openExaminationForm(e);
+                                }
+                            
+                               }>
                                     Pending!
                                 </ActionButtonStyled>
                             </td>

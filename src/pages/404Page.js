@@ -6,7 +6,7 @@ const NotFound = ()=>{
     return(
         <PageNotFoundStyled>
             <div className="not-found">
-                <h1>Page Not Found!Please Check the Url </h1>
+                <h1>Page Not Found! Page Currently Under Development </h1>
             </div>
         </PageNotFoundStyled>
     )

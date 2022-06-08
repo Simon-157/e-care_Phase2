@@ -5,14 +5,14 @@ import Welcome from "../components/images/welcome.gif"
 import FormProvider from '../components/Contexts/FormContext'
 
 
-function Home() {
-  return (
+const Home = () =>{
 
-    
+    const [user] = ([]);
+  return (
     <FormProvider>
         <SideBar />
         <MainGridStyled>
-            <h1>Welcome Simon<img src ={Welcome} className="avatar" alt=""/></h1>
+            {user ?<h1>Welcome Simon<img src ={Welcome} className="avatar" alt=""/></h1>: <h1>Login</h1>}
         </MainGridStyled>
     </FormProvider>
 

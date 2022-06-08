@@ -18,10 +18,8 @@ import Card from "./../components/Card";
 function PatientsList() {
 
     const {setPatientFormIsOpen} = useContext(formContext);
-
-
  
-    const [dataArray, setData] = useState(data)
+    const [dataArray] = useState(data)
     const [patients, setPatients] = useState(dataArray)
     const [title, setTitle] = useState(" ")
     const [numberMales, setNumberMales] = useState([{tag:"MALES"}])

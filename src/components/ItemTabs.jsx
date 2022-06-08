@@ -17,6 +17,17 @@ function ItemTabs() {
 
             </a>
 
+            <a href="/health/patients" >
+                <ItemTabStyled >
+
+                    <div className="nav-icon"> 
+                        
+                    </div>
+                    <span>Patients</span>
+                </ItemTabStyled>
+
+            </a>
+
             <a href="/health/consultation" >
                 <ItemTabStyled >
 
@@ -28,13 +39,13 @@ function ItemTabs() {
 
             </a>
 
-            <a href="/health/patients" >
+            <a href="/health/examination" >
                 <ItemTabStyled >
 
                     <div className="nav-icon"> 
                         
                     </div>
-                    <span>Patients</span>
+                    <span>Examination</span>
                 </ItemTabStyled>
 
             </a>
@@ -50,7 +61,7 @@ function ItemTabs() {
 
             </a>
 
-            <a href="/health/records" >
+            <a href="/home/records">
                 <ItemTabStyled >
 
                     <div className="nav-icon"> 
@@ -61,19 +72,8 @@ function ItemTabs() {
 
             </a>
 
-            <a href="/home">
-                <ItemTabStyled >
 
-                    <div className="nav-icon"> 
-                        
-                    </div>
-                    <span>Pharmacy</span>
-                </ItemTabStyled>
-
-            </a>
-
-
-            <a href="/home">
+            <a href="/home/health/faqs">
                 <ItemTabStyled >
 
                     <div className="nav-icon"> 
@@ -84,7 +84,7 @@ function ItemTabs() {
 
             </a>
 
-            <a href="/report">
+            <a href="/health/report">
                 <ItemTabStyled >
 
                     <div className="nav-icon"> 
@@ -94,7 +94,7 @@ function ItemTabs() {
                 </ItemTabStyled>
 
             </a>
-            <a href="/home">
+            <a href="/health/profile">
                 <ItemTabStyled >
 
                     <span>
