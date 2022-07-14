@@ -2,7 +2,7 @@
 import GoogleLogin from 'react-google-login';
 
 
-function Login() {
+const Login =() =>{
 
   const google = () => {
     window.open("http://localhost:5000/auth/google");

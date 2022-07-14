@@ -1,7 +1,7 @@
 import PatientForm from '../components/PatientForm'
 import PatientsList from "./PatientsList"
 
-function Patients() {
+const Patients =() =>{
 
   return (
     <>

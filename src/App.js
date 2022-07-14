@@ -11,13 +11,12 @@ import Login from "./pages/Login";
 import Consultation from "./pages/Consultation";
 import Examination from "./pages/Examination";
 
-function App() {
+const App = ()=> {
   return (
   
       <FormProvider>
       <GlobalStyles />
       <Home />
-
       <Router>
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
@@ -29,11 +28,8 @@ function App() {
           <Route path="/report" element = {<dummy /> }/>
           <Route path="/examination" element = {<Examination />} />
           <Route path="*" element = {<NotFound />} />
-
         </Routes>
-
       </Router>
-    
     </FormProvider>
   );
 }

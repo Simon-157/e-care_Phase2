@@ -2,7 +2,7 @@ import React from 'react'
 import { ItemTabStyled } from './styles/ItemTab.Styled'
 import Avartar from './images/images.jpg'
 
-function ItemTabs() {
+const ItemTabs = () =>{
     return (
         <>
 
@@ -39,7 +39,7 @@ function ItemTabs() {
 
             </a>
 
-            <a href="/health/examination" >
+            <a href="/examination" >
                 <ItemTabStyled >
 
                     <div className="nav-icon"> 
@@ -50,7 +50,7 @@ function ItemTabs() {
 
             </a>
 
-            <a href="/health/pharmacy" >
+            <a href="/pharmacy" >
                 <ItemTabStyled >
 
                     <div className="nav-icon"> 
@@ -94,7 +94,7 @@ function ItemTabs() {
                 </ItemTabStyled>
 
             </a>
-            <a href="/health/profile">
+            <a href="/profile">
                 <ItemTabStyled >
 
                     <span>

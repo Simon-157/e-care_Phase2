@@ -9,7 +9,7 @@ import ExaminationForm from '../components/ExaminationForm'
 // you might receive from an API
 
 
-function ConsultationList() {
+const ConsultationList = () =>{
     
     const {setExaminationFormIsOpen, setActivePatient} = useContext(formContext)
   

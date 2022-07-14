@@ -3,7 +3,7 @@ import Typing from "react-typing-animation";
 
 const slogan = ["Your Health Our Priority", "Health Service Made easy"];
 
-const Slogan=() => {
+const Slogan = () => {
     let Index = 0;
     const [state, setState] = useState({Index});
     const updateSlogan = () => {

@@ -15,7 +15,7 @@ import Card from "./../components/Card";
 // you might receive from an API
 
 
-function PatientsList() {
+const PatientsList = () =>{
 
     const {setPatientFormIsOpen} = useContext(formContext);
  

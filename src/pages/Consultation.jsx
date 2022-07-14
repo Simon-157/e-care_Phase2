@@ -1,8 +1,7 @@
-
 import { NavSection } from '../components/styles/NavSection'
 import ConsultationList from './ConsultationList';
 
-function Consultation() {
+const Consultation = () => {
   return (
     <>
         
