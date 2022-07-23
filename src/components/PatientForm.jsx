@@ -1,5 +1,6 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import Modal from 'react-modal'
+import axios from 'axios'
 import { formContext } from './Contexts/FormContext'
 import 'animate.css'
 import { FormStyled } from './styles/Form.Styled'
@@ -12,7 +13,46 @@ const PatientForm = () => {
   const {patientFormIsOpen, setPatientFormIsOpen} = useContext(formContext)
   // const [title, setTitle] = useState('')
   // const [subContent, setSubContent] = useState('')
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState(+233000000000)
+  const [email, setEmail] = useState("")
+  const [dob, setDob] = useState(Date.now())
+  const [pTitle, setPTitle] = useState("")
+  const [nhisStatus, setNhisStatus] = useState("")
+  const [facilityUnit, setFacilityUnit] = useState("")
+  const [specInstruct, setSpecInstructions] = useState("")
 
+
+  const handleSubmit = (e) => {
+
+      e.preventDefault()
+      const patient = {
+        name,
+        phone,
+        email,
+        dob,
+        pTitle, 
+        nhisStatus,
+        facilityUnit,
+        specInstruct,
+      }
+      console.log(patient)
+      axios({
+        method: 'post',
+        url: 'http://localhost:5000/registerPatient',
+        withCredentials: true,
+        data:patient
+        })
+        .then((response)=>{
+          console.log(response)
+         
+        })
+        .catch(err => {console.log(err)})
+        
+  
+    }
+
+  
   
   const handleModal = () => {
     setPatientFormIsOpen(false)
@@ -64,15 +104,17 @@ const PatientForm = () => {
             
            <form class="myForm">
                 <label for="customer_name">Name </label>
-                <input type="text" name="customer_name" id="customer_name" required />
+                <input type="text" name="customer_name" id="customer_name" required onChange={(e) => {setName(e.target.value)}}/>
 
                 <label for="phone_number">Phone </label>
-                <input type="tel" name="phone_number" id="phone_number" />
+                <input type="tel" name="phone_number" id="phone_number" onChange={(e) => {setPhone(e.target.value)}}/>
 
                 <label for="email_address">Email </label>
-                <input type="email" name="email_address" id="email_address" />
+                <input type="email" name="email_address" id="email_address" onChange={(e) => {setEmail(e.target.value)}}/>
+                <label for="pickup_time">Date of Birth</label>
+                <input type="datetime-local" name="pickup_time" id="pickup_time" required onChange={(e) => {setDob(e.target.value)}}/>
 
-                <fieldset>
+                <fieldset onChange={(e) => {setPTitle(e.target.value)}}>
                     <legend>What is your preferred title?</legend>
                     <label> <input type="radio" name="taxi" id="taxi_car" required value="car" /> Mr</label>
                     <label> <input type="radio" name="taxi" id="taxi_van" required value="van" /> Mrs </label>
@@ -80,37 +122,26 @@ const PatientForm = () => {
                     <label> <input type="radio" name="taxi" id="taxi_tuk" required value="tuktuk" /> Prof </label>
                 </fieldset>
 
-                <fieldset>
-                    <legend>Extras</legend>
-                    <label> <input type="checkbox" name="extras" id="extras_baby" value="baby"/> Baby Seat </label>
-                    <label> <input type="checkbox" name="extras" id="extras_wheel" value="wheelchair" /> Wheelchair Access </label>
-                    <label> <input type="checkbox" name="extras" id="extras_tip" value="tip" /> Stock Tip </label>
+                <fieldset onChange={(e) => {setNhisStatus(e.target.value)}}>
+                    <legend>Is Patient NHIS Subscriber?</legend>
+                    <label> <input type="radio" name="taxi" id="taxi_car" required value="car" /> Yes</label>
+                    <label> <input type="radio" name="taxi" id="taxi_van" required value="van" /> No </label>
+                    
                 </fieldset>
+
+
+
 
                 <label for="pickup_time">Registration Date/Time</label>
                 <input type="datetime-local" name="pickup_time" id="pickup_time" required />
 
-                <label for="pickup_place">Facility Name</label>
-                <select name="pickup_place" id="pickup_place">
-                    <option value="" selected="selected">Select One</option>
-                    <option value="office" >Taxi Office</option>
-                    <option value="town_hall" >Town Hall</option>
-                    <option value="telepathy" >We'll Guess!</option>
-                </select>
-
-                <label for="dropoff_place">Dropoff Place</label>
-                <input type="text" name="dropoff_place" id="dropoff_place" required list="destinations" />
-
-                <datalist id="destinations">
-                    <option value="Airport" />
-                    <option value="Beach" />
-                    <option value="Fred Flinstone's House" />
-                </datalist>
+                <label for="pickup_place">Facility Name/Unit</label>
+                <input type="text" name="dropoff_place" id="dropoff_place" required list="destinations" onChange={(e) =>{setFacilityUnit(e.target.value)}}/>
 
                 <label for="comments">Special Instructions</label>
-                <textarea name="comments" id="comments" maxlength="500"></textarea>
+                <textarea name="comments" id="comments" maxlength="500" onChange={(e) =>{setSpecInstructions(e.target.value);}}></textarea>
 
-                <button className="post-btn">ADD</button>
+                <button className="post-btn" onClick={handleSubmit}>ADD</button>
 
             </form>
             </FormStyled>
