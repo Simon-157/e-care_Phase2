@@ -25,7 +25,7 @@ const LandingPage = () =>{
                     </span>
                     
                     <h3>Be prescribed and get healthier</h3>
-                    {!user && <a href="/login" className="btn"><Test className="btn" /></a>}
+                    {!user? <a href="/login" className="btn"><Test className="btn" /></a>:""}
 
                 </div>
 

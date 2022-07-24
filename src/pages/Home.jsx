@@ -12,7 +12,7 @@ const Home = () =>{
     <FormProvider>
         <SideBar />
         <MainGridStyled>
-            {user ?<h1>Welcome Simon<img src ={Welcome} className="avatar" alt=""/></h1>: <h1>Login</h1>}
+        {user?<h1>Welcome {user.name.split(" ")[0]}<img src ={Welcome} className="avatar" alt=""/></h1>: <h1>Login</h1>}
         </MainGridStyled>
     </FormProvider>
 

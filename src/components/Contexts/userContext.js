@@ -1,28 +1,35 @@
-import axios from "axios";
-import { createContext, useState, useEffect } from "react";
-import { useQuery } from "react-query";
-export const userContext = createContext();
+import {createContext, useState, useEffect} from 'react'
+import axios from 'axios'
 
-const UserProvider = ({ children }) => {
-  const BASE_URL = "http://localhost:3000/auth/callback";
-  const getUser = async () => {
-    const user = await axios({
-      method: "get",
-      url: "http://localhost:5000/user",
-      withCredentials: true,
-    });
-    return user.data.user;
-  };
+export const userContext = createContext()
 
-  const { data, isLoading } = useQuery("user", getUser);
+
+
+function UserProvider({children}) {
+
+    const [user, setUser] = useState()
+    const getUser = () => {
+        axios({
+        method: 'get',
+        url: 'http://localhost:5000/user/profile',
+        withCredentials: true,
+        })
+        .then(response => {setUser(response.data.user)})
+        .catch(err => {console.log(err)})
+        
+    }
+    useEffect(() => {
+
+        getUser()
+
+    }, []);
+    console.log(user)
 
   return (
-    <userContext.Provider
-      value={{ data, getUser, isLoading }}
-    >
-      {children}
+    <userContext.Provider value={{user, setUser, getUser}}>
+        {children}
     </userContext.Provider>
-  );
-};
+  )
+}
 
-export default UserProvider;
+export default UserProvider

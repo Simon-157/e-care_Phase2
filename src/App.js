@@ -10,11 +10,13 @@ import NotFound from "./pages/404Page";
 import Login from "./pages/Login";
 import Consultation from "./pages/Consultation";
 import Examination from "./pages/Examination";
+import UserProvider from './components/Contexts/userContext';
 
 const App = ()=> {
   return (
   
       <FormProvider>
+      <UserProvider>
       <GlobalStyles />
       <Home />
       <Router>
@@ -30,6 +32,7 @@ const App = ()=> {
           <Route path="*" element = {<NotFound />} />
         </Routes>
       </Router>
+      </UserProvider>
     </FormProvider>
   );
 }
