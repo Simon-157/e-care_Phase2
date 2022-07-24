@@ -1,7 +1,7 @@
 
 import React, {useContext} from 'react'
 import Modal from 'react-modal'
-import { formContext } from './Contexts/FormContext'
+import { formContext } from '../contexts/FormContext'
 import 'animate.css'
 import { FormStyled } from './styles/Form.Styled'
 import { FlexStyled } from './styles/FlexStyled'

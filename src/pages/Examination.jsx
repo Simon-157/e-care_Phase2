@@ -1,6 +1,6 @@
 
 import {useContext} from 'react'
-import { formContext } from '../components/Contexts/FormContext'
+import { formContext } from '../contexts/FormContext'
 
 const Examination = () =>{
 

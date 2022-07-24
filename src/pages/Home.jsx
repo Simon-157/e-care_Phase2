@@ -2,7 +2,7 @@ import React from 'react'
 import SideBar from '../components/SideBar'
 import { MainGridStyled } from '../components/styles/HomeStyled'
 import Welcome from "../components/images/welcome.gif"
-import FormProvider from '../components/Contexts/FormContext'
+import FormProvider from '../contexts/FormContext'
 
 
 const Home = () =>{

@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
 import Modal from 'react-modal'
 import axios from 'axios'
-import { formContext } from './Contexts/FormContext'
+import { formContext } from '../contexts/FormContext'
 import 'animate.css'
 import { FormStyled } from './styles/Form.Styled'
 

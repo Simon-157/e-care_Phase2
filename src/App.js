@@ -3,7 +3,7 @@ import { GlobalStyles } from "./components/styles/GlobalStyled";
 import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
 import Home from "./pages/Home";
 import LandingPage from './pages/LandingPage';
-import FormProvider from './components/Contexts/FormContext';
+import FormProvider from './contexts/FormContext';
 // import dummy from "./pages/dummy";
 import Patients from './pages/Patients';
 import Login from "./pages/Login";
