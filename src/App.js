@@ -6,11 +6,11 @@ import LandingPage from './pages/LandingPage';
 import FormProvider from './components/Contexts/FormContext';
 // import dummy from "./pages/dummy";
 import Patients from './pages/Patients';
-import NotFound from "./pages/404Page";
 import Login from "./pages/Login";
 import Consultation from "./pages/Consultation";
 import Examination from "./pages/Examination";
 import UserProvider from './components/Contexts/userContext';
+import PageNotFound from './pages/errors/page-not-found/PageNotFound';
 
 const App = ()=> {
   return (
@@ -29,7 +29,7 @@ const App = ()=> {
           <Route path="/health/patients" element={<Patients />} />
           <Route path="/report" element = {<dummy /> }/>
           <Route path="/examination" element = {<Examination />} />
-          <Route path="*" element = {<NotFound />} />
+          <Route path="*" element = {<PageNotFound />} />
         </Routes>
       </Router>
       </UserProvider>
