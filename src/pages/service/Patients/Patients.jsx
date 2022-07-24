@@ -1,5 +1,5 @@
-import PatientForm from '../components/PatientForm'
-import PatientsList from "./PatientsList"
+import PatientForm from './components/PatientForm'
+import PatientsList from "./components/PatientsList"
 
 const Patients =() =>{
 

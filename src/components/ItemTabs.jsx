@@ -1,6 +1,6 @@
 import React from 'react'
 import { ItemTabStyled } from './styles/ItemTab.Styled'
-import Avartar from './images/images.jpg'
+import Avartar from '../media/images.jpg'
 
 const ItemTabs = () =>{
     return (

@@ -1,5 +1,5 @@
-import { NavSection } from '../components/styles/NavSection'
-import ConsultationList from './ConsultationList';
+import { NavSection } from './../../../components/styles/NavSection'
+import ConsultationList from './components/ConsultationList';
 
 const Consultation = () => {
   return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styles from "./ErrorBoundary.module.css"
+import styles from "./ErrorBoundary.module.scss"
 
 export class ErrorBoundary extends Component {  
     constructor(props) {  

@@ -2,7 +2,7 @@ import React,{useContext} from 'react';
 import { LandingPageStyled } from '../components/styles/LandingPage';
 import Test from '../components/GoogleAuth'
 import Slogan from '../components/Slogan'
-import { userContext } from '../components/Contexts/userContext';
+import { userContext } from "./../contexts/userContext";
 
 
 

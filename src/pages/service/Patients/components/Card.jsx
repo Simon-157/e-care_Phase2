@@ -1,5 +1,5 @@
 import React from 'react'
-import { PaperCardStyled } from './styles/PaperCard';
+import { PaperCardStyled } from '../../../../components/styles/PaperCard';
 
 const Card = ({number}) =>{
     

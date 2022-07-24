@@ -1,6 +1,6 @@
-import Google from "../components/images/google.png";
+import Google from "../../../media/google.png"
 import { Link } from 'react-router-dom';
-import { LoginPageStyled } from "../../../components/styles/LoginPage.Styled";
+import { LoginPageStyled } from "./LoginPage.Styled";
 
 
 const Login = () => {

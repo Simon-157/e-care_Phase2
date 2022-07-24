@@ -1,8 +1,8 @@
 import React from 'react'
-import SideBar from '../components/SideBar'
-import { MainGridStyled } from '../components/styles/HomeStyled'
-import Welcome from "../components/images/welcome.gif"
-import FormProvider from '../contexts/FormContext'
+import SideBar from './../../../components/SideBar'
+import { MainGridStyled } from './../../../components/styles/HomeStyled'
+import Welcome from "../../../media/welcome.gif"
+import  FormProvider from "./../../../contexts/FormContext";
 
 
 const Home = () =>{

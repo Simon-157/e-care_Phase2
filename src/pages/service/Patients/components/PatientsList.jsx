@@ -1,14 +1,14 @@
 import {useContext, useEffect, useState} from 'react'
-import { formContext } from '../contexts/FormContext'
-import { ActionButtonStyled } from '../components/styles/ActionButton';
-import { ButtonStyled } from '../components/styles/Button.Styled';
-import { StyledContainer } from '../components/styles/Container.Styled';
-import { NavSection } from '../components/styles/NavSection';
-import { SearchBarStyled } from '../components/styles/SearchBar.Styled';
-import { TableStyled } from '../components/styles/TableStyled';
+import { formContext } from '../../../../contexts/FormContext'
+import { ActionButtonStyled } from '../../../../components/styles/ActionButton';
+import { ButtonStyled } from '../../../../components/styles/Button.Styled';
+import { StyledContainer } from '../../../../components/styles/Container.Styled';
+import { NavSection } from '../../../../components/styles/NavSection';
+import { SearchBarStyled } from '../../../../components/styles/SearchBar.Styled';
+import { TableStyled } from '../../../../components/styles/TableStyled';
 import {data} from "./PatientsDummy"
-import { DashStyled } from "./../components/styles/Dash.Styled";
-import Card from "./../components/Card";
+import { DashStyled } from "../../../../components/styles/Dash.Styled";
+import Card from "./Card"
 
 
 // Example of a data array that
@@ -29,7 +29,7 @@ const PatientsList = () =>{
     var fArray = [{tag:"FEMALES"}];
     const count = () => {
 
-        for(let i=0; i<dataArray.length; i++){
+        for(let i=0; i<dataArray?.length; i++){
             if(dataArray[i].gender.toLowerCase() === 'male' && !mArray.includes(dataArray[i])){
                 
                 mArray.push(dataArray[i]);
@@ -54,7 +54,7 @@ const PatientsList = () =>{
         
         if(searchTitle !== " "){
     
-            const results = dataArray.filter((patient) => {
+            const results = dataArray?.filter((patient) => {
             return patient.name.toLowerCase().includes(searchTitle.toLowerCase()) || patient.LastName.toLowerCase().includes(searchTitle.toLowerCase());
             });
             setPatients(results)

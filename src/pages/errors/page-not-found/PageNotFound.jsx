@@ -2,7 +2,7 @@
 import { useLocation } from 'react-router-dom';
 
 //Styles
-import styles from "./PageNotFound.module.css"
+import styles from "./PageNotFound.module.scss"
 
 const PageNotFound = () => {
 
