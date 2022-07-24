@@ -1,10 +1,10 @@
 import {useContext} from 'react'
-import { formContext } from '../contexts/FormContext'
-import { ActionButtonStyled } from '../components/styles/ActionButton';
-import { StyledContainer } from '../components/styles/Container.Styled';
-import { TableStyled } from '../components/styles/TableStyled';
-import {data} from "./PatientsDummy"
-import ExaminationForm from '../components/ExaminationForm'
+import { formContext } from '../../../../contexts/FormContext'
+import { ActionButtonStyled } from '../../../../components/styles/ActionButton';
+import { StyledContainer } from '../../../../components/styles/Container.Styled';
+import { TableStyled } from '../../../../components/styles/TableStyled';
+import {data} from "../../../PatientsDummy"
+import ExaminationForm from '../../../../components/ExaminationForm'
 // Example of a data array that
 // you might receive from an API
 

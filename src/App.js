@@ -6,7 +6,7 @@ import LandingPage from './pages/LandingPage';
 import FormProvider from './contexts/FormContext';
 // import dummy from "./pages/dummy";
 import Patients from './pages/Patients';
-import Login from "./pages/Login";
+import Login from "./pages/auth/login/Login";
 import Consultation from "./pages/Consultation";
 import Examination from "./pages/Examination";
 import UserProvider from './components/Contexts/userContext';
