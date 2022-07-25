@@ -1,10 +1,9 @@
 import React, {useContext} from 'react'
 import { ItemTabStyled } from './styles/ItemTab.Styled'
-import Avartar from '../media/images.jpg'
-import { userContext } from '../contexts/userContext'
+// import { useAuth } from "./../hooks/useAuth";
 
-const ItemTabs = () =>{
-    const {user} = useContext(userContext)
+const ItemTabs = ({user}) =>{
+    
     return (
         <>
 
@@ -110,13 +109,13 @@ const ItemTabs = () =>{
                 </ItemTabStyled>
 
             </a>
-            <a href="/home">
+            <a href="">
                 <ItemTabStyled >
 
                     <div className="nav-icon"> 
                         
                     </div>
-                    <span>Logout</span>
+                    {user &&<span><a href="/logout">Logout</a></span>}
                 </ItemTabStyled>
 
             </a>
