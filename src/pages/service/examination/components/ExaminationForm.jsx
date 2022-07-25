@@ -13,7 +13,6 @@ const ExaminationForm = () => {
   // const [title, setTitle] = useState('')
   // const [subContent, setSubContent] = useState('')
 
-  
   const handleModal = () => {
     setExaminationFormIsOpen(false)
   }

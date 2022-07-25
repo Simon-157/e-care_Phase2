@@ -13,7 +13,6 @@ const ConsultationList = () =>{
   
 
     const openExaminationForm = (e) =>{
-    
         setExaminationFormIsOpen(true);
         setActivePatient(e);
         return e;

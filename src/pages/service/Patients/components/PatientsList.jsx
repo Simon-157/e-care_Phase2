@@ -12,6 +12,7 @@ import Card from "./Card"
 import MaleAvartar from "../../../../media/MaleAvatar.png"
 import FemaleAvartar from "../../../../media/femaleAvartar.png"
 import People from "../../../../media/People.png"
+import CustomPopup from '../../../../components/customs/popup/Popup';
 
 // Example of a data array that
 // you might receive from an API
@@ -20,12 +21,17 @@ import People from "../../../../media/People.png"
 const PatientsList = () =>{
 
     const {setPatientFormIsOpen} = useContext(formContext);
- 
+    const [currentPatient, setCurrentPatient] = useState(null)
     const [dataArray] = useState(data)
     const [patients, setPatients] = useState(dataArray)
     const [title, setTitle] = useState(" ")
     const [numberMales, setNumberMales] = useState([{tag:"MALES"}])
     const [numberFemales, setNumberFemales] = useState([{tag:"FEMALES"}])
+    const [visibility, setVisibility] = useState(false);
+
+    const popupCloseHandler = (e) => {
+      setVisibility(e);
+    };
 
     var mArray = [{tag:"MALES"}];
     var fArray = [{tag:"FEMALES"}];
@@ -71,6 +77,11 @@ const PatientsList = () =>{
 
     const openPatientForm = () =>{
         setPatientFormIsOpen(true);
+    }
+
+    const getCurrentPatient = (e) =>{
+        setCurrentPatient(e);
+        return e;
     }
 
     useEffect(() =>{
@@ -122,7 +133,19 @@ return (
                         {(patients).map((val, key) => {
                         return (
                             <tr key={key}>
-                            <td>{val.name}</td>
+                            <td>
+                                <div key={val.name} onClick={(e) =>{getCurrentPatient(val);setVisibility(!visibility)}}>
+                                    {val.name}
+                                    <CustomPopup
+                                        onClose={popupCloseHandler}
+                                        show={visibility}
+                                        patient={currentPatient}
+                                    >
+                                        <strong>{currentPatient?.name} {currentPatient?.LastName}</strong>
+                                        <h2>This is {currentPatient?.LastName} profile</h2>
+                                    </CustomPopup>
+                                </div >
+                            </td>
                             <td>{val.LastName}</td>
                             <td>{val.age}</td>
                             <td>{val.gender}</td>

@@ -12,12 +12,11 @@ import Consultation from './pages/service/consultation/Consultation';
 import Examination from './pages/service/examination/Examination';
 import UserProvider, { userContext } from "./contexts/userContext";
 import PageNotFound from './pages/errors/page-not-found/PageNotFound';
-import { ProtectedLayout } from './utilities/ProtectedLayout';
+import ProtectedRoutes from './utilities/ProtectedLayout';
 
 
 const App = ()=> {
 
-  const {user} = useContext(userContext)
   return (
   
       <FormProvider>
@@ -27,14 +26,17 @@ const App = ()=> {
       <Router>
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
-          <Route path="/login" element={!user?<Login />:<LandingPage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/accounts" />
           <Route path="/report" element = {<dummy /> }/>
-          <Route path="/health" element = {<ProtectedLayout />}>
-            <Route path="consultation" element = {<Consultation />} />
-            <Route path="pharmacy" />
-            <Route path="patients" element={<Patients />} />
-            <Route path="examination" element = {user?<Examination />:<Login />} />
+          <Route element={<ProtectedRoutes/>}>
+              <Route path='/health/patients' element={<Patients />} />
+          </Route>
+          <Route element={<ProtectedRoutes/>}>
+              <Route path='/health/consultation' element={<Consultation />} />
+          </Route>
+          <Route element={<ProtectedRoutes/>}>
+              <Route path='/health/examination' element={<Examination />} />
           </Route>
           <Route path="*" element = {<PageNotFound />} />
         </Routes>

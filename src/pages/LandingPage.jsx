@@ -19,9 +19,9 @@ const LandingPage = () =>{
                     <img src="/images/healthconcern.jpg" alt=""></img>
                 </div>
 
-                <div className="content">
-                    <span>
-                        <Slogan />
+                <div className="content" style={{position:"absolute"}}>
+                    <span >
+                        {/* <Slogan /> */}
                     </span>
                     
                     <h3>Be prescribed and get healthier</h3>
