@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { ItemTabStyled } from './styles/ItemTab.Styled'
 import Avartar from '../media/images.jpg'
+import { userContext } from '../contexts/userContext'
 
 const ItemTabs = () =>{
+    const {user} = useContext(userContext)
     return (
         <>
 
@@ -100,7 +102,7 @@ const ItemTabs = () =>{
                     <span>
                         <img className="avatar" 
                     
-                        src = {Avartar}
+                        src = {user?.avatar}
                         alt="profile"
                         />
                   

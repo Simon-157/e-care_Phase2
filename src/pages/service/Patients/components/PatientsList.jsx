@@ -9,7 +9,9 @@ import { TableStyled } from '../../../../components/styles/TableStyled';
 import {data} from "./PatientsDummy"
 import { DashStyled } from "../../../../components/styles/Dash.Styled";
 import Card from "./Card"
-
+import MaleAvartar from "../../../../media/MaleAvatar.png"
+import FemaleAvartar from "../../../../media/femaleAvartar.png"
+import People from "../../../../media/People.png"
 
 // Example of a data array that
 // you might receive from an API
@@ -79,9 +81,9 @@ const PatientsList = () =>{
 return (
     <>
         <DashStyled >
-            <Card number = {patients} />  
-            <Card number = {numberMales} />  
-            <Card number = {numberFemales}/>  
+            <Card number = {patients} image={People}/>  
+            <Card number = {numberMales} image={MaleAvartar}/>  
+            <Card number = {numberFemales} image={FemaleAvartar}/>  
          
         </DashStyled>
         

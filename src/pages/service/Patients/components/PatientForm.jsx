@@ -39,7 +39,7 @@ const PatientForm = () => {
       console.log(patient)
       axios({
         method: 'post',
-        url: 'http://localhost:5000/registerPatient',
+        url: 'http://localhost:5000/patient/registerPatient',
         withCredentials: true,
         data:patient
         })
@@ -48,12 +48,8 @@ const PatientForm = () => {
          
         })
         .catch(err => {console.log(err)})
-        
-  
     }
 
-  
-  
   const handleModal = () => {
     setPatientFormIsOpen(false)
   }
@@ -102,16 +98,16 @@ const PatientForm = () => {
                <div className="form-header"><h2>FILL PATIENT DETAILS</h2></div>
            <button onClick={handleModal} className='close-btn'>&times;</button>
             
-           <form class="myForm">
-                <label for="customer_name">Name </label>
+           <div className="myForm">
+                <label htmlFor="customer_name">Name </label>
                 <input type="text" name="customer_name" id="customer_name" required onChange={(e) => {setName(e.target.value)}}/>
 
-                <label for="phone_number">Phone </label>
+                <label htmlFor="phone_number">Phone </label>
                 <input type="tel" name="phone_number" id="phone_number" onChange={(e) => {setPhone(e.target.value)}}/>
 
-                <label for="email_address">Email </label>
+                <label htmlFor="email_address">Email </label>
                 <input type="email" name="email_address" id="email_address" onChange={(e) => {setEmail(e.target.value)}}/>
-                <label for="pickup_time">Date of Birth</label>
+                <label htmlFor="pickup_time">Date of Birth</label>
                 <input type="datetime-local" name="pickup_time" id="pickup_time" required onChange={(e) => {setDob(e.target.value)}}/>
 
                 <fieldset onChange={(e) => {setPTitle(e.target.value)}}>
@@ -132,18 +128,18 @@ const PatientForm = () => {
 
 
 
-                <label for="pickup_time">Registration Date/Time</label>
+                <label htmlFor="pickup_time">Registration Date/Time</label>
                 <input type="datetime-local" name="pickup_time" id="pickup_time" required />
 
-                <label for="pickup_place">Facility Name/Unit</label>
+                <label htmlFor="pickup_place">Facility Name/Unit</label>
                 <input type="text" name="dropoff_place" id="dropoff_place" required list="destinations" onChange={(e) =>{setFacilityUnit(e.target.value)}}/>
 
-                <label for="comments">Special Instructions</label>
-                <textarea name="comments" id="comments" maxlength="500" onChange={(e) =>{setSpecInstructions(e.target.value);}}></textarea>
+                <label htmlFor="comments">Special Instructions</label>
+                <textarea name="comments" id="comments" maxLength="500" onChange={(e) =>{setSpecInstructions(e.target.value);}}></textarea>
 
                 <button className="post-btn" onClick={handleSubmit}>ADD</button>
 
-            </form>
+            </div>
             </FormStyled>
             
         </Modal>

@@ -67,12 +67,15 @@ export const PaperCardStyled = styled.div`
     }
   }
   
-  .dash-icon{
+  .card-icon{
     width:50px;
     height:50px;
   }
   
-  
+img{
+  height:50px !important;
+  width:50px;
+}
 
 
 `

@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 
 export const FormStyled = styled.form`
-
-
-
 .close-btn{
     position: absolute;
     cursor:pointer;
