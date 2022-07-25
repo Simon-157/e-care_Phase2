@@ -1,10 +1,10 @@
 
 import React, {useContext} from 'react'
 import Modal from 'react-modal'
-import { formContext } from '../contexts/FormContext'
+import { formContext } from '../../../../contexts/FormContext'
 import 'animate.css'
-import { FormStyled } from './styles/Form.Styled'
-import { FlexStyled } from './styles/FlexStyled'
+import { FormStyled } from '../../../../components/styles/Form.Styled'
+import { FlexStyled } from '../../../../components/styles/FlexStyled'
 // import { ActionButtonStyled } from './styles/ActionButton'
 
 const ExaminationForm = () => {
