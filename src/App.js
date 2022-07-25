@@ -12,6 +12,7 @@ import Consultation from './pages/service/consultation/Consultation';
 import Examination from './pages/service/examination/Examination';
 import UserProvider, { userContext } from "./contexts/userContext";
 import PageNotFound from './pages/errors/page-not-found/PageNotFound';
+import { ProtectedLayout } from './utilities/ProtectedLayout';
 
 
 const App = ()=> {
@@ -27,12 +28,14 @@ const App = ()=> {
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
           <Route path="/login" element={!user?<Login />:<LandingPage />} />
-          <Route path="/health/consultation" element = {<Consultation />} />
-          <Route path="/health/pharmacy" />
           <Route path="/accounts" />
-          <Route path="/health/patients" element={user?<Patients />:<Login />} />
           <Route path="/report" element = {<dummy /> }/>
-          <Route path="/examination" element = {user?<Examination />:<Login />} />
+          <Route path="/health" element = {<ProtectedLayout />}>
+            <Route path="consultation" element = {<Consultation />} />
+            <Route path="pharmacy" />
+            <Route path="patients" element={<Patients />} />
+            <Route path="examination" element = {user?<Examination />:<Login />} />
+          </Route>
           <Route path="*" element = {<PageNotFound />} />
         </Routes>
       </Router>
