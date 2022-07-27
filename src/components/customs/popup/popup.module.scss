@@ -2,6 +2,7 @@
     visibility: hidden;
     opacity: 0.1;
     position: fixed;
+    height: 100vh;
     top: 0;
     bottom: 0;
     left: 0%;
@@ -16,13 +17,16 @@
 }
   .popup {
     position: relative;
-    margin: 70px auto;
+    margin: 7px auto;
+    align-items: center;
     padding: 20px;
     background: #fff;
     border-radius: 5px;
-    width: 70%;
-    height: auto;
+    width: 100vh;
+    height: 100vh;
     transition: all 5s ease-in-out;
+    overflow-x: scroll;
+    margin-bottom: 5rem;
   }
   
   .popup h2 {
@@ -33,7 +37,7 @@
   .popup .close {
     position: absolute;
     top: 20px;
-    right: 30px;
+    right: 15px;
     transition: all 200ms;
     font-size: 30px;
     font-weight: bold;

@@ -11,8 +11,7 @@ const Card = ({number, image}) =>{
                 <div  className="flash-div">
                     <a href={`/studyset/`} className="dash-card">
                         <button   className="flash-button"> 
-                            <p>{number[0].tag}</p>
-                            <p>{number.length}</p>
+                           {number.length !==0 && <><p>{number[0].tag}</p><p>{number.length}</p></>}
                             <span className="card-icon">
                                 <img styles={{position:"absolute", top:"10rem", height: '2rem', width: '0.5rem'}} src={image} alt=""/>
                             </span>

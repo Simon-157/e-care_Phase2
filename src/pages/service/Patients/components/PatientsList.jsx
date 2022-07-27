@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from 'react'
+import {useContext, useEffect, useState, useCallback} from 'react'
 import { formContext } from '../../../../contexts/FormContext'
 import { ActionButtonStyled } from '../../../../components/styles/ActionButton';
 import { ButtonStyled } from '../../../../components/styles/Button.Styled';
@@ -13,6 +13,9 @@ import MaleAvartar from "../../../../media/MaleAvatar.png"
 import FemaleAvartar from "../../../../media/femaleAvartar.png"
 import People from "../../../../media/People.png"
 import CustomPopup from '../../../../components/customs/popup/Popup';
+import Loader from '../../../../components/customs/loader/Loader';
+import { Grid } from  'react-loader-spinner'
+import PatientProfile from '../../../profile/patients_profile/patientProfile';
 
 // Example of a data array that
 // you might receive from an API
@@ -35,7 +38,7 @@ const PatientsList = () =>{
 
     var mArray = [{tag:"MALES"}];
     var fArray = [{tag:"FEMALES"}];
-    const count = () => {
+    const count = useCallback(() => {
 
         for(let i=0; i<dataArray?.length; i++){
             if(dataArray[i].gender.toLowerCase() === 'male' && !mArray.includes(dataArray[i])){
@@ -53,7 +56,7 @@ const PatientsList = () =>{
         console.log(numberMales)
         console.log(numberFemales)
         
-        }
+        }, [numberMales, numberFemales, dataArray, mArray, fArray])
     
     const filter = (e) => {
         const searchTitle = e.target.value
@@ -86,7 +89,7 @@ const PatientsList = () =>{
 
     useEffect(() =>{
         count()
-    }, [patients])
+    }, [patients, setPatients, currentPatient, setCurrentPatient, count])
 
 
 return (
@@ -118,7 +121,7 @@ return (
                 
             </SearchBarStyled>
                     
-            <div className="item-container">
+           {patients?<div className="item-container">
             
                 <TableStyled>
                     
@@ -130,10 +133,10 @@ return (
                         <th>Gender</th>
                         <th>Action</th>
                         </tr>
-                        {(patients).map((val, key) => {
+                        {patients !== null && patients.map((val, key) => {
                         return (
                             <tr key={key}>
-                            <td>
+                            <td>                                        
                                 <div key={val.name} onClick={(e) =>{getCurrentPatient(val);setVisibility(!visibility)}}>
                                     {val.name}
                                     <CustomPopup
@@ -143,6 +146,7 @@ return (
                                     >
                                         <strong>{currentPatient?.name} {currentPatient?.LastName}</strong>
                                         <h2>This is {currentPatient?.LastName} profile</h2>
+                                        <PatientProfile />
                                     </CustomPopup>
                                 </div >
                             </td>
@@ -159,8 +163,15 @@ return (
                         })}
                     </table>
                 </TableStyled>
-            
-            </div>
+            </div>:<Grid
+            height = "80"
+            width = "80"
+            radius = "9"
+            color = 'green'
+            ariaLabel = 'three-dots-loading'     
+            wrapperStyle
+            wrapperClass
+        />} 
             
 
         </StyledContainer>
