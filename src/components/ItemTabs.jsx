@@ -1,8 +1,29 @@
 import React, {useContext} from 'react'
+import axios from 'axios'
+import { userContext } from '../contexts/userContext'
+
 import { ItemTabStyled } from './styles/ItemTab.Styled'
 // import { useAuth } from "./../hooks/useAuth";
 
-const ItemTabs = ({user}) =>{
+const ItemTabs = () =>{
+    const {user, setUser} = useContext(userContext)
+    // const navigate = useNavigate()
+    const logout = async () => {
+    
+        axios.get('http://localhost:5000/user/logout', 
+        {
+          withCredentials: true, 
+      
+        })
+          .then(response => {
+            if(response){
+              setUser(null);
+              window.open('http://localhost:3000/')
+              
+            }
+          })
+    
+      }
     
     return (
         <>
@@ -109,16 +130,16 @@ const ItemTabs = ({user}) =>{
                 </ItemTabStyled>
 
             </a>
-            <a href="">
+            <>
                 <ItemTabStyled >
 
                     <div className="nav-icon"> 
                         
                     </div>
-                    {user &&<span><a href="/logout">Logout</a></span>}
+                    {user &&<span onClick={logout}>Logout</span>}
                 </ItemTabStyled>
 
-            </a>
+            </>
 
 
 

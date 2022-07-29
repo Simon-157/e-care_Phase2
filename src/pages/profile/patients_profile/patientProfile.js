@@ -12,7 +12,7 @@ function PatientProfile() {
         </div>
         <div className={patientProfileStyles.right}>
             <div className={patientProfileStyles.info}>
-                <h3>Information</h3>
+                <h3>Patients Information</h3>
                 <div className={patientProfileStyles.info_data}>
                     <div className={patientProfileStyles.data}>
                         <h4>Email</h4>

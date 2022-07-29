@@ -8,7 +8,7 @@ export const userContext = createContext()
 function UserProvider({children}) {
 
     const [user, setUser] = useState()
-    const getUser = () => {
+    const getUser = async() => {
         axios({
         method: 'get',
         url: 'http://localhost:5000/user/profile',

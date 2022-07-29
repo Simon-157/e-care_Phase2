@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import './App.css';
 import { GlobalStyles } from "./components/styles/GlobalStyled";
 import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
@@ -10,7 +9,7 @@ import Patients from './pages/service/Patients/Patients';
 import Login from "./pages/auth/login/Login";
 import Consultation from './pages/service/consultation/Consultation';
 import Examination from './pages/service/examination/Examination';
-import UserProvider, { userContext } from "./contexts/userContext";
+import UserProvider from "./contexts/userContext";
 import PageNotFound from './pages/errors/page-not-found/PageNotFound';
 import ProtectedRoutes from './utilities/ProtectedLayout';
 
